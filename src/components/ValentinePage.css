@@ -1,0 +1,1089 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+
+.valentine-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    position: relative;
+}
+
+.valentine-question {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #ff4d6d;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 1rem;
+    z-index: 10;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 50;
+    position: relative;
+    /* Ensure buttons are above background */
+    min-height: 100px;
+    /* Give space for buttons */
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-yes {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.btn-yes:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.4);
+}
+
+.btn-no {
+    background-color: #ededed;
+    color: #333;
+    /* position: absolute; Removed to fix overlap */
+    /* Allows movement */
+    transition: all 0.2s ease-out;
+    /* Smooth movement but fast enough to escape */
+}
+
+/* Success Message Styles */
+.success-message {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #ff4d6d;
+    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+/* Floating Hearts Animation */
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+    /* Behind content but visible */
+}
+
+.heart {
+    position: absolute;
+    bottom: -10vh;
+    font-size: 2rem;
+    color: rgba(255, 77, 109, 0.6);
+    animation: floatUp 15s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+/* Teasing Bear Animation */
+/* Teasing Bear Container */
+.teasing-bear-container {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: peekIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+}
+
+.teasing-bear {
+    width: 350px;
+    height: auto;
+}
+
+.teasing-speech-bubble {
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ff4d6d;
+    position: relative;
+    max-width: 250px;
+    text-align: center;
+    border: 2px solid #ff4d6d;
+    transform: translate(-200px, 60px);
+    /* Move towards bear left ear */
+}
+
+.teasing-speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 85%;
+    /* Point to the bear */
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: #ff4d6d transparent transparent transparent;
+}
+
+@keyframes peekIn {
+    0% {
+        transform: translateY(100%) rotate(10deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Proposing Bear */
+.proposing-bear {
+    position: fixed;
+    bottom: 0px;
+    left: 20px;
+    width: 300px;
+    height: auto;
+    z-index: 15;
+}
+
+/* Question Wrapper */
+.question-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 90%;
+}
+
+/* Love Box Bear */
+.love-box-bear {
+    position: absolute;
+    top: -90px;
+    right: 10%;
+    width: 150px;
+    height: auto;
+    z-index: 20;
+    /* transform: rotate(15deg); Removed */
+    /* animation: float 3s ease-in-out infinite; Removed */
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(15deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(15deg);
+    }
+}
+
+/* Celebration Styles */
+.celebration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    padding-top: 100px;
+    /* Space for text */
+}
+
+.bears-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.dance-bear-wrapper {
+    /* Removed absolute positioning */
+    transition: all 1s ease-in-out;
+    z-index: 20;
+}
+
+.dance-bear {
+    width: 300px;
+    height: auto;
+}
+
+.dance-bear-wrapper.move-to-side {
+    left: 10%;
+    transform: scale(0.8);
+}
+
+.kiss-bear {
+    width: 350px;
+    /* Reduced slightly to fit row */
+    height: auto;
+    animation: zoomIn 1s ease-out;
+    z-index: 25;
+}
+
+.hug-bear {
+    /* Removed absolute positioning */
+    width: 300px;
+    height: auto;
+    animation: slideInRight 1s ease-out;
+    z-index: 25;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.celebration-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    color: #ff4d6d;
+    margin-top: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 30;
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    position: absolute;
+    top: 10%;
+    width: 90%;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.surprise-btn {
+    margin-top: 2rem;
+    background-color: #ffd700;
+    /* Gold */
+    color: #d90429;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    z-index: 30;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+.surprise-btn:hover {
+    transform: scale(1.05);
+    background-color: #ffea00;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 215, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+.surprise-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff0f3;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.surprise-image {
+    max-width: 90%;
+    max-height: 70vh;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+    border: 5px solid white;
+}
+
+.ready-btn {
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.ready-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff2a55;
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Gift Phase */
+.gift-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff0f3;
+    animation: fadeIn 0.5s ease-in;
+    cursor: pointer;
+}
+
+.gift-box {
+    width: 350px;
+    height: auto;
+    animation: shake 2s infinite;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gift-box:hover {
+    transform: scale(1.1);
+}
+
+.click-me-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #ff4d6d;
+    margin-top: 1rem;
+    animation: bounceIn 1s infinite alternate;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+/* Final Surprise Phase */
+.final-surprise-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff0f3;
+    animation: zoomIn 0.5s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.final-surprise-image {
+    max-width: 90%;
+    max-height: 60vh;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(255, 77, 109, 0.5);
+    border: 5px solid #ff4d6d;
+    z-index: 10;
+}
+
+.right-message-container {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 25;
+}
+
+.eyes-icon {
+    width: 250px;
+    /* Increased size */
+    height: auto;
+    /*animation: bounceIn 1s infinite alternate;*/
+}
+
+.same-to-same-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #ff4d6d;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blaster {
+    position: absolute;
+    width: 15rem;
+    /* Increased size for SVG */
+    height: auto;
+    bottom: 0;
+    /* Position at bottom corners */
+    z-index: 20;
+    z-index: 20;
+    /* Animation defined in subclasses */
+}
+
+.blaster-left {
+    left: 2%;
+    /* transform handled in keyframes */
+    animation: popBlasterLeft 1s ease-out forwards;
+}
+
+.blaster-right {
+    right: 2%;
+    /* transform handled in keyframes */
+    animation: popBlasterRight 1s ease-out forwards;
+}
+
+@keyframes popBlasterLeft {
+    0% {
+        transform: scale(0) translateY(100px) rotate(30deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2) translateY(-20px) rotate(30deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) translateY(0) rotate(30deg);
+        opacity: 1;
+    }
+}
+
+@keyframes popBlasterRight {
+    0% {
+        transform: scaleX(-1) scale(0) translateY(100px) rotate(30deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scaleX(-1) scale(1.2) translateY(-20px) rotate(30deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scaleX(-1) scale(1) translateY(0) rotate(30deg);
+        opacity: 1;
+    }
+}
+
+/* Confetti Styles */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 15;
+    /* Behind text/image but above background */
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -5vh;
+    border-radius: 4px;
+    animation: confettiFall linear infinite;
+    opacity: 0;
+}
+
+
+
+
+.sorry-btn {
+    position: absolute;
+    bottom: 40px;
+    background-color: #ff4d6d;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /*animation: bounceIn 1s infinite alternate;*/
+    font-family: 'Poppins', sans-serif;
+    border: 3px solid white;
+}
+
+.sorry-btn:hover {
+    transform: scale(1.1);
+    background-color: #d90429;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Collage Styles */
+.collage-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff0f3;
+    overflow: hidden;
+    /* Prevent scrolling */
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    /* Flex to manage title + grid */
+    flex-direction: column;
+}
+
+.collage-title {
+    font-family: 'Great Vibes', cursive;
+    color: #ff4d6d;
+    font-size: 2.5rem;
+    /* Slightly smaller to save space */
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    /* Prevent title from shrinking */
+    z-index: 10;
+}
+
+/* Layout Container */
+.collage-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    /* Take remaining height after title */
+    min-height: 0;
+    /* Allow shrinking */
+    gap: 10px;
+    padding: 0;
+    /* Lift from bottom */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Side Grids (3x3) */
+.side-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0px;
+    /* No gap -> allow overlaps for cross-crossed look */
+    width: 35%;
+    height: 100%;
+    /* Reduced slightly to prevent bottom cutoff */
+    transform: none;
+}
+
+.collage-item.side-item {
+    width: 100%;
+    height: 100%;
+    /* No frame, no background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.collage-item.side-item img {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    /* Natural width */
+    height: auto;
+    /* Natural height */
+    object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Shadow on image itself */
+    border-radius: 2px;
+}
+
+.collage-item.side-item:hover {
+    transform: scale(1.2) rotate(0deg) !important;
+    /* Pop out straight on hover */
+    z-index: 50;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Center Focus Section */
+.center-focus {
+    width: 25%;
+    /* Center column width */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collage-item.special-item {
+    width: 100%;
+    height: auto;
+    max-height: 80%;
+    border: 8px solid #ffd700;
+    /* Gold Border */
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.collage-item.special-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.collage-item.special-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Fill the cell exactly */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.collage-item:hover {
+    z-index: 10;
+    transform: scale(1.15);
+    /* Pop out effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, z-index 0s;
+}
+
+.collage-item:hover img {
+    transform: scale(1.0);
+    /* Reset inner scale, let parent scale */
+}
+
+/* Special Item Highlight */
+.special-item {
+    border: 4px solid #ffd700;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    position: relative;
+}
+
+.special-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffd700;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Lightbox Styles */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close-btn:hover {
+    color: #ff4d6d;
+}
+
+.lightbox-caption {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* =========================================
+   Responsive Design Media Queries
+   ========================================= */
+
+@media (max-width: 1024px) {
+    .valentine-question {
+        font-size: 2.5rem;
+    }
+
+    .proposing-bear {
+        width: 250px;
+    }
+
+    .teasing-bear {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* General Typography */
+    .valentine-question {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+
+    .celebration-text {
+        font-size: 2.2rem;
+        top: 50px;
+        width: 90%;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+    }
+
+    .buttons-container {
+        gap: 1rem;
+        flex-direction: column;
+        /* Stack buttons on mobile? Maybe keep row if they fit */
+        flex-direction: row;
+        width: 100%;
+    }
+
+    /* Bears Positioning */
+    .proposing-bear {
+        position: relative;
+        /* Unfix from corner for flow */
+        bottom: auto;
+        left: auto;
+        width: 200px;
+        margin-top: 2rem;
+    }
+
+    .teasing-bear-container {
+        right: 0;
+        left: 0;
+        bottom: 0;
+        align-items: center;
+        /* Center on mobile */
+    }
+
+    .teasing-bear {
+        width: 200px;
+    }
+
+    .teasing-speech-bubble {
+        transform: translate(0, 0);
+        /* Reset transform */
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+        max-width: 200px;
+    }
+
+    .teasing-speech-bubble::after {
+        left: 50%;
+    }
+
+    /* Love Box Bear */
+    .love-box-bear {
+        width: 100px;
+        right: 5%;
+        top: -60px;
+    }
+
+    /* Celebration Phase */
+    .celebration-container {
+        padding-top: 60px;
+        justify-content: flex-start;
+        overflow-y: auto;
+        /* Allow scroll if bears overflow */
+    }
+
+    .bears-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .kiss-bear,
+    .dance-bear,
+    .hug-bear {
+        width: 200px;
+        height: auto;
+    }
+
+    .surprise-btn {
+        font-size: 1.4rem;
+        padding: 0.8rem 1.5rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Collage Layout for Mobile */
+    .collage-container {
+        overflow-y: auto;
+        /* Enable scroll */
+        height: 100vh;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .collage-title {
+        font-size: 2rem;
+        padding: 1.5rem 0 0.5rem 0;
+        flex-shrink: 0;
+    }
+
+    .collage-layout {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+        overflow: visible;
+        padding-bottom: 2rem;
+        gap: 8px;
+        padding: 0 5px;
+    }
+
+    .side-grid {
+        display: contents;
+        /* Flatten the grid, make children direct items of collage-layout */
+    }
+
+    .collage-item.side-item {
+        height: auto;
+        aspect-ratio: 1 / 1;
+        min-height: 200px;
+        /* Reduced slightly to fit 2 cols better */
+        transform: none !important;
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    .center-focus {
+        grid-column: span 2;
+        /* Span full width */
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+        order: -1;
+        /* Put special image first */
+        display: flex;
+        justify-content: center;
+    }
+
+    .collage-item.special-item {
+        max-height: 400px;
+        width: 90%;
+        /* Keep some margin */
+    }
+
+    /* Final Surprise */
+    .final-surprise-image {
+        max-height: 40vh;
+        margin-top: 2rem;
+    }
+
+    .right-message-container {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin-top: 1rem;
+    }
+
+    .eyes-icon {
+        width: 150px;
+    }
+
+    .blaster {
+        width: 8rem;
+    }
+
+    .sorry-btn {
+        bottom: 20px;
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .valentine-question {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .proposing-bear {
+        width: 180px;
+    }
+
+    .teasing-bear {
+        width: 160px;
+    }
+
+    .side-grid {
+        gap: 5px;
+        padding: 0 10px;
+    }
+
+    .collage-item.side-item {
+        height: 80px;
+    }
+}
