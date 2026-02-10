@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import './ValentinePage.css';
-import teasingBear from '../assets/Dudu_teasing.svg';
 import proposingBear from '../assets/Dudu_proposing.svg';
 import loveBoxBear from '../assets/Dudu_love_box.svg';
 import danceBear from '../assets/Dudu_dance.gif';
