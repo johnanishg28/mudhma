@@ -22,15 +22,17 @@ function App() {
     const [valentineAccepted, setValentineAccepted] = useState(false);
     const [loadingPhase, setLoadingPhase] = useState('preload'); // 'preload', 'timer', 'complete'
 
+
+
     useEffect(() => {
-        const assetsToLoad = [
+        const allAssets = [
             proposingBear,
             loveBoxBear,
+            teasingGif,
             danceBear,
             kissBear,
             hugBear,
             surpriseImage,
-            teasingGif,
             finalSurpriseImage,
             giftIcon,
             popperIcon,
@@ -38,7 +40,8 @@ function App() {
             ...collageImages.map(img => img.src)
         ];
 
-        preloadAssets(assetsToLoad)
+        // Wait for ALL assets to load before showing the timer
+        preloadAssets(allAssets)
             .then(() => {
                 // Minimum loading time to show the "Big Surprise Loading" message
                 setTimeout(() => {
