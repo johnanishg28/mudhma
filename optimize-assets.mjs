@@ -73,6 +73,29 @@ async function main() {
         }
     }
 
+    // SVG to WebP Conversion
+    const svgFiles = fs.readdirSync(TARGET_ASSETS).filter(f => path.extname(f).toLowerCase() === '.svg');
+    for (const file of svgFiles) {
+        const srcPath = path.join(TARGET_ASSETS, file);
+        const destPath = path.join(TARGET_ASSETS, path.basename(file, '.svg') + '.webp');
+
+        try {
+            const originalSize = fs.statSync(srcPath).size;
+            // Only convert if it's large (>500KB)
+            if (originalSize > 500 * 1024) {
+                await sharp(srcPath)
+                    .webp({ quality: 80 })
+                    .toFile(destPath);
+
+                const newSize = fs.statSync(destPath).size;
+                const saved = ((originalSize - newSize) / originalSize * 100).toFixed(1);
+                console.log(`  CONVERTED ${file}: ${(originalSize / 1024 / 1024).toFixed(1)}MB -> ${(newSize / 1024 / 1024).toFixed(1)}MB (${saved}% saved)`);
+            }
+        } catch (err) {
+            console.error(`  FAIL SVG CONVERT ${file}: ${err.message}`);
+        }
+    }
+
     console.log('\nDone! All images recompressed with proper rotation.\n');
 }
 

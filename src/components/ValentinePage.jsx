@@ -1,16 +1,16 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import './ValentinePage.css';
-import proposingBear from '../assets/Dudu_proposing.svg';
-import loveBoxBear from '../assets/Dudu_love_box.svg';
+import proposingBear from '../assets/Dudu_proposing.webp';
+import loveBoxBear from '../assets/Dudu_love_box.webp';
 import danceBear from '../assets/Dudu_dance.gif';
 import kissBear from '../assets/Dudu_kiss_Bubu.gif';
 import hugBear from '../assets/dudu_hug_bubu.gif';
 import surpriseImage from '../assets/surprise_image.jpg';
 import teasingGif from '../assets/dudu_teasing_new.gif';
 import finalSurpriseImage from '../assets/final_surprise.jpg';
-import giftIcon from '../assets/gift.svg';
-import popperIcon from '../assets/popper.svg';
-import eyesIcon from '../assets/eyes.svg';
+import giftIcon from '../assets/gift.webp';
+import popperIcon from '../assets/popper.svg'; // Popper is <500KB so likely skipped
+import eyesIcon from '../assets/eyes.webp';
 import { collageImages } from './CollageImages';
 
 const ValentinePage = ({ onAccept }) => {
